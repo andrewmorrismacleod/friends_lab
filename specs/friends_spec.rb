@@ -81,15 +81,28 @@ class TestFriends < MiniTest::Test
 
   # 3. For a given person, check if they like a particular food
   # (e.g. the function likes_to_eat(@person2, "bread") should return true, likes_to_eat(@person3, "spinach") should return false)
+  def test_likes_to_eat
+    result = likes_to_eat(@person2, "bread")
+    assert_equal(true, result)
+  end
+
 
   # 4. For a given person, add a new name to their list of friends
   # (e.g. the function add_friend(@person2, "Scrappy-Doo") should add Scrappy-Doo to the friends.)
   # (hint: This function should not return anything. After the function call, check for the length of the friends array to test it!)
-
+  def test_add_new_name
+    add_friend(@person1, "Scrappy-Doo")
+    result = @people[0][:friends].length
+    assert_equal(5, result)
+  end
 
   # 5. For a given person, remove a specific name from their list of friends
   # (hint: Same as above, testing for the length of the array should be sufficient)
-
+  def test_remove_name
+    remove_friend(@person1, "Velma")
+    result = @people[0][:friends].length
+    assert_equal(2, result)
+  end
 
   # 6. Find the total of everyone's money
   # (hint: use the @people array, remember how we checked the total number of eggs yesterday?)
