@@ -40,3 +40,14 @@ def lend_money(lender, lendee, loan_amount)
   lender[:monies] -= loan_amount
   lendee[:monies] += loan_amount
 end
+
+def combined_food(people)
+
+  all_foods = []
+  for person in people
+    for food in person[:favourites][:snacks]
+      all_foods.push(food)
+    end
+  end
+  return all_foods
+end
