@@ -92,7 +92,7 @@ class TestFriends < MiniTest::Test
   # (hint: This function should not return anything. After the function call, check for the length of the friends array to test it!)
   def test_add_new_name
     add_friend(@person1, "Scrappy-Doo")
-    result = @people[0][:friends].length
+    result = @person1[:friends].length
     assert_equal(5, result)
   end
 
@@ -100,7 +100,7 @@ class TestFriends < MiniTest::Test
   # (hint: Same as above, testing for the length of the array should be sufficient)
   def test_remove_name
     remove_friend(@person4, "Velma")
-    result = @people[3][:friends].length
+    result = @person4[:friends].length
     assert_equal(2, result)
   end
 
@@ -130,5 +130,8 @@ class TestFriends < MiniTest::Test
 
   # 9. Find people with no friends
   # (hint: return an array, there might be more people in the future with no friends!)
-
+  def test_no_friends
+    result = no_friends(@people)
+    assert_equal(["Daphne"],result)
+  end
 end

@@ -51,3 +51,13 @@ def combined_food(people)
   end
   return all_foods
 end
+
+def no_friends(people)
+  all_friendless_people = []
+  for person in people
+    if person[:friends].length == 0
+      all_friendless_people.push(person[:name])
+    end
+  end
+  return all_friendless_people
+end
